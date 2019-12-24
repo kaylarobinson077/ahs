@@ -30,5 +30,5 @@ df_filtered_hcost = raw_data[limit_hcost]
 my_order = df_filtered_hcost.groupby(by=["DIVISION"])["TOTHCAMT"].median().sort_values(ascending = False).index
 
 # look at housing prices by census region
-ax = sns.boxplot(y = "DIVISION", x = "TOTHCAMT", data= df_filtered_hcost, palette="Pastel1", order = my_order)
+ax = sns.boxplot(y = "DIVISION", x = "TOTHCAMT", data= df_filtered_hcost, palette="Pastel1", order = my_order, fliersize=0)
 ax.set(xlabel = 'Total Housing Cost (Monthly)', ylabel = 'Census Division')

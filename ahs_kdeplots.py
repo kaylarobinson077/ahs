@@ -5,7 +5,7 @@ import numpy as np
 
 # data from: http://www2.census.gov/programs-surveys/ahs/2017/AHS%202017%20National%20PUF%20v3.0%20Flat%20CSV.zip?#
 fname = 'Data/ahs2017n.csv'
-#raw_data = pd.read_csv(fname)
+raw_data = pd.read_csv(fname)
 
 raw_data["TENURE"] = raw_data["TENURE"].replace({"'1'": 'Owned', "'2'": 'Rented', "'3'": 'Occupied without rent'})
 
@@ -38,6 +38,10 @@ df_owners = df_filtered_hcost[limit_owners]
 limit_renters = df_filtered_hcost["TENURE"] == 'Rented'
 df_renters = df_filtered_hcost[limit_renters]
 
+# initialize color definitions
+red = sns.color_palette("Reds")[-2]
+blue = sns.color_palette("Blues")[-2]
+
 # plot income vs. monthy housing costs
 f, ax = plt.subplots(figsize=(8, 8))
 ax = sns.kdeplot(df_owners["HINCP_monthly"], df_owners["TOTHCAMT"],
@@ -49,8 +53,6 @@ ax = sns.kdeplot(df_renters["HINCP_monthly"], df_renters["TOTHCAMT"],
 ax = sns.regplot(x="HINCP_monthly", y="TOTHCAMT", data=df_owners, color=red, scatter=False)
 ax = sns.regplot(x="HINCP_monthly", y="TOTHCAMT", data=df_renters, color=blue, scatter=False)
 
-red = sns.color_palette("Reds")[-2]
-blue = sns.color_palette("Blues")[-2]
 ax.text(0, 3500, "Renters", size=16, color=blue)
 ax.text(0, 3200, "Owners", size=16, color=red)
 ax.set(xlabel = 'Household Income (Monthly)', ylabel = 'Total Housing Cost (Monthly)')

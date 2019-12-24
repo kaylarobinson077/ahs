@@ -5,7 +5,7 @@ import numpy as np
 
 # data from: http://www2.census.gov/programs-surveys/ahs/2017/AHS%202017%20National%20PUF%20v3.0%20Flat%20CSV.zip?#
 fname = 'Data/ahs2017n.csv'
-#raw_data = pd.read_csv(fname)
+raw_data = pd.read_csv(fname)
 
 raw_data["RODENT"] = raw_data["RODENT"].replace({"'1'": 'Daily', "'2'": 'Weekly', "'3'": 'Monthly', "'4'": 'A few times', "'5'": 'No signs'}) 
 raw_data["TENURE"] = raw_data["TENURE"].replace({"'1'": 'Owned', "'2'": 'Rented', "'3'": 'Occupied without rent'})
