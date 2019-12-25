@@ -96,8 +96,8 @@ def boxplot_commute_region(region):
     df_region = df_filtered_com[df_filtered_com["DIVISION"] == region]
     my_order = df_region.groupby(by=["OMB13CBSA"])["COMCOST_monthly"].median().sort_values(ascending = False).index
     ax = sns.boxplot(y = "OMB13CBSA", x = "COMCOST_monthly", data= df_region, palette="Pastel1", fliersize=0, order = my_order)
-    ax.set(xlabel = 'Commuting Cost (Annual)', ylabel = 'Metropolitan Region', title = region)
-    plt.xlim(-1000, 17500)
+    ax.set(xlabel = 'Commuting Cost (Monthly)', ylabel = 'Metropolitan Region', title = region)
+    plt.xlim(-100, 1500)
 
 # lets look specifically at some metropolitan regions
 
