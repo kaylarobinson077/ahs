@@ -58,7 +58,3 @@ ax.text(0, 3200, "Owners", size=16, color=red)
 ax.set(xlabel = 'Household Income (Monthly)', ylabel = 'Total Housing Cost (Monthly)')
 
 
-
-
-
-
