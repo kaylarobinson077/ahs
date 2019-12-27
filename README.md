@@ -1,2 +1,2 @@
 # ahs
-Exploring the American Housing Survey
+Exploring the American Housing Survey, and building familiarity with seaborn 🐍
